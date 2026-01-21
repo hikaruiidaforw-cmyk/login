@@ -1,0 +1,205 @@
+/* ベース設定 */
+:root {
+    --bg-color: #f9fafb;      /* ほんのりグレーがかった白（爽やかさの鍵） */
+    --card-bg: #ffffff;       /* 真っ白 */
+    --text-primary: #111111;  /* 真っ黒より少し柔らかい黒 */
+    --text-secondary: #757575;/* 落ち着いたグレー */
+    --border-color: #e5e7eb;  /* 薄いグレーの線 */
+    --focus-color: #111111;   /* フォーカス時のアクセント（黒） */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ログインカード */
+.login-box {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 440px;
+    padding: 60px 50px;
+    border-radius: 16px;
+    /* 非常に柔らかく広がる影で「浮遊感」と「明るさ」を出す */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+/* ヘッダー */
+.header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+}
+
+/* 入力エリア */
+.input-field {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.input-field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fafafa; /* 入力欄をわずかにグレーにして視認性UP */
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.input-field input::placeholder {
+    color: #ccc;
+}
+
+/* フォーカス時は黒枠でキリッとさせる */
+.input-field input:focus {
+    background-color: #fff;
+    border-color: var(--focus-color);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* サブアクション（チェックボックス・リンク） */
+.sub-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 32px;
+}
+
+.sub-actions a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.sub-actions a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+/* カスタムチェックボックス（クリーンなデザイン） */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+    position: relative;
+    transition: 0.2s;
+}
+
+/* チェックが入った時 */
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
+/* チェックマークの描画 */
+.custom-checkbox .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked ~ .checkmark::after {
+    display: block;
+}
+
+.label-text {
+    color: var(--text-secondary);
+}
+
+/* ボタン */
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--text-primary);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 軽い影 */
+}
+
+.btn-login:hover {
+    background-color: #333;
+    transform: translateY(-2px); /* ふわりと浮く */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* フッターリンク */
+.footer {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.footer a {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.footer a:hover {
+    border-bottom: 1px solid var(--text-primary);
+}
